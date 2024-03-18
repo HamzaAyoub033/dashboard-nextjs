@@ -1,0 +1,39 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:hamza123@localhost:5432/nextjs-dashboard-postgres"
+}
+
+// Define your model(s) here
+model users {
+  id       Int      
+  username String   @unique
+  email    String   @unique
+  password String
+}
+
+model customers  {
+    id String @unique
+    name String
+    email String
+    image_url String
+  }
+
+model invoices  {
+    customer_id String @unique
+    amount Int
+    status String
+    date String
+  }
+
+
+  model revenue  {
+    id String @unique
+     month  String
+    revenue  Int
+     }
